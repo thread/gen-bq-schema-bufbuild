@@ -8,6 +8,6 @@ To use the plugin with buf simply add the plugin to your `buf.gen.yaml` file. He
 ```yaml
 version: v1
 plugins:
-  - remote: buf.build/judahrand/plugins/gen-bq-schema:34288dc182e30d74eeeee6c15cc1e11f537eae1b
+  - remote: buf.build/judahrand/plugins/gen-bq-schema:v1.0.0-1
     out: gen
 ```
