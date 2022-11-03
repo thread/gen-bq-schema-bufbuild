@@ -1,0 +1,26 @@
+name: Release
+
+on:
+  push:
+    branches:
+      - main
+
+jobs:
+  packaging:
+    name: Distribution
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v2
+      - name: Login to DockerHub
+        uses: docker/login-action@v2
+        with:
+          registry: plugins.buf.build
+          username: ${{ secrets.BUF_USER }}
+          password: ${{ secrets.BUF_TOKEN }}
+      - name: Build and push
+        env:
+          RELEASE_NAME: ${{ github.ref_name }}
+        run: |
+          export PLUGIN_VERSION=$(echo $RELEASE_NAME | grep -o '\d\+\.\d\+\.\d\+')
+          export BUF_VERSION=$($RELEASE_NAME | grep -o '\d\+$')
+          make push
