@@ -4,7 +4,7 @@ PLUGIN_VERSION = 1.0.0
 BUF_VERSION = 1
 DOCKER_TAG    := v${PLUGIN_VERSION}-${BUF_VERSION}
 
-BUF_URL = plugins.buf.build/judahrand/gen-bq-schema
+BUF_URL = plugins.buf.build/thread/gen-bq-schema
 DOCKER_NAME   := ${BUF_URL}
 DOCKER_IMG    := ${DOCKER_NAME}:${DOCKER_TAG}
 
